@@ -521,10 +521,22 @@
   .edu-line h3{font-size:12px;color:var(--pac);margin-bottom:4px;letter-spacing:1px}
   .edu-line p{font-size:10px;color:var(--grey)}
 
-  /* ---------- FOOTER ---------- */
-  footer{
-    text-align:center;padding:80px 20px 60px;position:relative;
+  /* ---------- GAME OVER (final stage) ---------- */
+  .go-wrap{
+    text-align:center;padding:34px 0 12px;
   }
+  #respawn{
+    margin-top:30px;
+    font-family:inherit;font-size:12px;letter-spacing:2px;color:#fff;
+    background:linear-gradient(180deg,#ff5fdd,#b02090);
+    border:3px solid #14062b;border-radius:10px;
+    padding:15px 24px;cursor:pointer;
+    box-shadow:0 5px 0 #4d0e3e, 0 0 18px rgba(255,79,216,.5);
+    text-shadow:0 1px 2px #000;
+    touch-action:manipulation;user-select:none;-webkit-user-select:none;
+  }
+  #respawn:hover{filter:brightness(1.15)}
+  #respawn:active{transform:translateY(3px);box-shadow:0 2px 0 #4d0e3e, 0 0 18px rgba(255,79,216,.5)}
   .gameover{font-size:clamp(18px,4vw,32px);color:var(--blinky);letter-spacing:3px;text-shadow:3px 3px 0 #4d0000}
   .continue{margin-top:22px;font-size:11px;color:var(--white)}
   .continue .n{color:var(--pac);display:inline-block;min-width:2ch}
@@ -875,6 +887,21 @@
       </div>
       </div>
 
+      <div class="stage">
+        <div class="go-wrap">
+          <div class="gameover">GAME OVER?</div>
+          <div class="continue">CONTINUE… <span class="n" id="countdown">9</span></div>
+          <div class="foot-contacts">
+            <div class="chip"><b>EMAIL</b> <a href="mailto:adam.molnar6353@gmail.com">adam.molnar6353@gmail.com</a></div>
+            <div class="chip"><b>GITHUB</b> <a href="https://github.com/DMNRDR" target="_blank" rel="noopener">DMNRDR</a></div>
+            <div class="chip"><b>BASE</b> Slovakia / remote</div>
+          </div>
+          <div class="insert blink">▶ INSERT COIN — HIRE ADAM ◀</div>
+          <button id="respawn" title="start over from the title screen">↻ RESPAWN</button>
+          <div class="credits">© 2026 ADAM MOLNAR · MADE OF PIXELS AND FIELD NOTES<br>NO GHOSTS WERE HARMED IN THE MAKING OF THIS CV</div>
+        </div>
+      </div>
+
     </div>
     <div class="panel">
       <div class="joybase" title="drag: fly the drone"><div class="joystick"></div></div>
@@ -900,17 +927,7 @@
 <!-- free-flying mini drone, steered by the deck joysticks -->
 <div id="flyer"></div>
 
-<!-- FOOTER -->
-<footer>
-  <div class="gameover">GAME OVER?</div>
-  <div class="continue">CONTINUE… <span class="n" id="countdown">9</span></div>
-  <div class="foot-contacts">
-    <div class="chip"><b>EMAIL</b> <a href="mailto:adam.molnar6353@gmail.com">adam.molnar6353@gmail.com</a></div>
-    <div class="chip"><b>GITHUB</b> <a href="https://github.com/DMNRDR" target="_blank" rel="noopener">DMNRDR</a></div>
-  </div>
-  <div class="insert blink">▶ INSERT COIN — HIRE ADAM ◀</div>
-  <div class="credits">© 2026 ADAM MOLNAR · MADE OF PIXELS AND FIELD NOTES<br>NO GHOSTS WERE HARMED IN THE MAKING OF THIS CV</div>
-</footer>
+<!-- (game over lives inside the machine as the final stage) -->
 
 <script>
 /* ================= PIXEL SPRITE ENGINE ================= */
@@ -1254,6 +1271,9 @@ function pressStart(){
 document.getElementById('startbtn').addEventListener('click',pressStart);
 ts.addEventListener('click',e=>{ if(e.target.closest('a')) return; pressStart(); });
 
+/* ================= RESPAWN — back to the title screen ================= */
+document.getElementById('respawn').addEventListener('click',()=>location.reload());
+
 /* ================= COIN DOORS = CREDITS ================= */
 let credits=1;
 document.querySelectorAll('.coindoor').forEach(cd=>{
@@ -1273,6 +1293,7 @@ const STAGES=[
   {title:'SIDE<span class="hl">QUESTS</span>', cls:'cab green'},
   {title:'FIELD <span class="hl">OPS</span>', cls:'cab red'},
   {title:'TRAINING <span class="hl">GROUNDS</span>', cls:'cab gold'},
+  {title:'GAME <span class="hl">OVER</span>', cls:'cab red'},
 ];
 let stage=0, switching=false;
 const cabEl=document.getElementById('thecab');
