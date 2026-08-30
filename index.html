@@ -505,6 +505,21 @@
     background:var(--inky);box-shadow:0 0 10px var(--inky);
   }
   .dronewrap{position:absolute;left:calc(50% - 32px);bottom:28px;transition:left .22s steps(6)}
+  .youwin{
+    position:absolute;inset:0;z-index:6;
+    display:none;
+    flex-direction:column;align-items:center;justify-content:center;gap:16px;
+    background:rgba(2,2,16,.84);
+    cursor:pointer;text-align:center;
+  }
+  .youwin.on{display:flex}
+  .yw-big{
+    font-size:clamp(20px,4vw,30px);color:var(--green);letter-spacing:3px;
+    text-shadow:0 0 20px rgba(0,228,54,.6), 3px 3px 0 #032a10;
+    animation:winpulse .8s steps(2) infinite;
+  }
+  @keyframes winpulse{50%{transform:scale(1.07)}}
+  .yw-sub{font-size:9px;color:var(--white);letter-spacing:2px}
   .hover-bob{animation:hover-bob 1.2s steps(3) infinite}
   @keyframes hover-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
   .tripodwrap{position:absolute;left:11%;bottom:18px}
@@ -854,6 +869,10 @@
         <span class="dronewrap hover-bob" id="gunner" data-sprite="drone" data-scale="4"></span>
         <span class="tripodwrap" data-sprite="tripod" data-scale="3"></span>
         <div class="ground"></div>
+        <div class="youwin" id="youwin" title="restart the wave">
+          <div class="yw-big">YOU WIN!</div>
+          <div class="yw-sub blink">▶ CLICK TO RESTART ◀</div>
+        </div>
       </div>
 
       <div class="fieldgrid">
@@ -1407,7 +1426,22 @@ O....W....O
 .Y...O...Y.`;
 const battle=document.querySelector('.battle');
 const gunner=document.getElementById('gunner');
-document.querySelectorAll('.enemy').forEach(en=>{
+const enemies=[...document.querySelectorAll('.enemy')];
+const respawnTimers=new Map();
+const winEl=document.getElementById('youwin');
+function resetBattle(){
+  respawnTimers.forEach(t=>clearTimeout(t));
+  respawnTimers.clear();
+  enemies.forEach(en=>{
+    en.style.opacity='';
+    const cv=en.querySelector('canvas');
+    if(cv) cv.style.visibility='';
+    delete en.dataset.dead;
+  });
+  winEl.classList.remove('on');
+}
+winEl.addEventListener('click',resetBattle);
+enemies.forEach(en=>{
   en.addEventListener('click',()=>{
     if(en.dataset.dead) return;
     en.dataset.dead='1';
@@ -1435,10 +1469,20 @@ document.querySelectorAll('.enemy').forEach(en=>{
           setTimeout(()=>{ b2.remove(); en.style.opacity='0'; },130);
         },110);
         addPoints(150);
-        setTimeout(()=>{
-          en.style.opacity=''; if(cv) cv.style.visibility='';
-          delete en.dataset.dead;
-        },7000);
+        if(enemies.every(e=>e.dataset.dead)){
+          /* whole wave cleared before anyone respawned — YOU WIN */
+          respawnTimers.forEach(t=>clearTimeout(t));
+          respawnTimers.clear();
+          addPoints(1000);
+          setTimeout(()=>winEl.classList.add('on'),380);
+        }else{
+          const t=setTimeout(()=>{
+            en.style.opacity=''; if(cv) cv.style.visibility='';
+            delete en.dataset.dead;
+            respawnTimers.delete(en);
+          },7000);
+          respawnTimers.set(en,t);
+        }
       };
     },240);
   });
