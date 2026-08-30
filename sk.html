@@ -1305,7 +1305,7 @@ function pressStart(){
   setTimeout(()=>ts.remove(),800);
 }
 document.getElementById('startbtn').addEventListener('click',pressStart);
-ts.addEventListener('click',e=>{ if(e.target.closest('a')) return; pressStart(); });
+ts.addEventListener('click',e=>{ if(e.target.closest('a')||e.target.closest('.chip')) return; pressStart(); });
 
 /* ================= RESPAWN — back to the title screen ================= */
 document.getElementById('respawn').addEventListener('click',()=>location.reload());
