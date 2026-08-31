@@ -663,12 +663,14 @@
     .cab-top{margin:-14px -10px 0}
     .deck-ledge{margin:-4px -14px 0}
     .base{margin:8px -4px 0}
-    .panel{gap:14px;margin:0 -4px;padding:12px 10px 14px}
+    /* flatter deck slope on phones — the 4% trapezoid was shaving the joystick ring and button glow */
+    .panel{gap:8px;margin:0 -4px;padding:14px 16px 16px;clip-path:polygon(1.5% 0, 98.5% 0, 100% 100%, 0 100%)}
+    .btnrow{gap:10px}
     .joybase{width:56px;height:56px}
     .joystick{width:28px;height:28px;margin:-14px 0 0 -14px}
-    .abtn{width:36px;height:36px;font-size:12px}
-    .btnhint{font-size:8px;letter-spacing:0;line-height:1.8}
-    .btnhint .mini{width:20px;height:20px;line-height:20px;font-size:7px}
+    .abtn{width:38px;height:38px;font-size:13px}
+    .btnhint{font-size:8px;letter-spacing:0;line-height:1.9;white-space:normal}
+    .btnhint .mini{width:18px;height:18px;line-height:18px;font-size:6px}
     .floorshadow{margin:0 34px}
     /* single column: icon row on top, text gets the full screen width */
     .quest,.sq{padding:14px 12px 12px;margin:0 0 16px}
@@ -768,7 +770,7 @@
         ktorá z landing page vyrástla na kuriérov, dispečing a dashboardy. Súkromná mapa, ktorá odmieta
         strkať server medzi kamarátov — takže používateľské dáta sa neukladajú nikde inde, iba
         v zariadeniach kamarátov. Chatboty s transakciami. A oveľa viac...</p>
-        <p>A keď obrazovka zhasne, meriam terén a lietam s dronmi — staviam ich, lietam s nimi,
+        <p>A keď obrazovka počítača zhasne, meriam terén a lietam s dronmi — staviam ich, lietam s nimi,
         programujem ich. Tá istá hra, len iná výška.</p>
       </div>
       </div>
