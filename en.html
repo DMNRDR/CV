@@ -1,22 +1,12 @@
 <!DOCTYPE html>
-<html lang="sk">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script>
-/* SK je hlavná verzia — prehliadač bez slovenčiny pošleme na en.html; ručný výber jazyka (cvlang) má prednosť */
-(function(){try{
-  var p=localStorage.getItem('cvlang');
-  if(p==='sk')return;
-  var tags=(navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||'']),sk=false;
-  for(var i=0;i<tags.length;i++){var t=String(tags[i]).toLowerCase();if(t==='sk'||t.indexOf('sk-')===0||t.slice(-3)==='-sk'){sk=true;break}}
-  if(p==='en'||!sk)location.replace('en.html'+location.hash);
-}catch(e){}})();
-</script>
 <title>Adam Molnar — CV</title>
-<meta name="description" content="Adam Molnar — full-stack developer, geodézia a drony. Vhoď mincu a pokračuj.">
+<meta name="description" content="Adam Molnar — full-stack developer, geodesy & drones. Insert coin to continue.">
 <meta property="og:title" content="Adam Molnar — CV">
-<meta property="og:description" content="Full-stack developer · geodézia & drony. Vhoď mincu a pokračuj.">
+<meta property="og:description" content="Full-stack developer · geodesy & drones. Insert coin to continue.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 1a7 7 0 1 0 6.3 10L8 8l6.3-3A7 7 0 0 0 8 1z' fill='%23ffe600'/%3E%3C/svg%3E">
 <link rel="alternate" hreflang="en" href="https://dmnrdr.github.io/CV/en.html">
 <link rel="alternate" hreflang="sk" href="https://dmnrdr.github.io/CV/">
@@ -692,13 +682,13 @@
   <div class="ts-inner">
     <header class="title">
       <h1>ADAM<br><span class="alt">MOLNAR</span></h1>
-      <div class="subtitle">FULL-STACK DEVELOPER · GEODÉZIA &amp; DRONY</div>
+      <div class="subtitle">FULL-STACK DEVELOPER · GEODESY &amp; DRONES</div>
 
       <div class="contacts">
         <div class="chip"><b>EMAIL</b> <a href="mailto:adam.molnar6353@gmail.com">adam.molnar6353@gmail.com</a></div>
         <div class="chip"><b>GITHUB</b> <a href="https://github.com/DMNRDR" target="_blank" rel="noopener">DMNRDR</a></div>
-        <div class="chip"><b>BASE</b> Slovensko / remote</div>
-        <div class="chip"><b>LANGUAGE</b> <span class="langbar"><a href="en.html" title="english version" onclick="try{localStorage.setItem('cvlang','en')}catch(e){}">EN</a><i>·</i><a class="on">SK</a></span></div>
+        <div class="chip"><b>BASE</b> Slovakia / remote</div>
+        <div class="chip"><b>LANGUAGE</b> <span class="langbar"><a class="on">EN</a><i>·</i><a href="./" title="slovenská verzia" onclick="try{localStorage.setItem('cvlang','sk')}catch(e){}">SK</a></span></div>
       </div>
     </header>
 
@@ -716,14 +706,14 @@
     </div>
 
     <button id="startbtn" class="pressstart blink">— PRESS START —</button>
-    <div class="ts-hint">KLIKNI ALEBO STLAČ ENTER</div>
+    <div class="ts-hint">CLICK OR HIT ENTER</div>
   </div>
 </div>
 
 <!-- slim mobile header (shown ≤640px instead of HUD + menu) -->
 <header class="mobile-head">
   <span class="mh-name">ADAM <b>MOLNAR</b></span>
-  <span class="mh-lang langbar"><a href="en.html" title="english version" onclick="try{localStorage.setItem('cvlang','en')}catch(e){}">EN</a><i>·</i><a class="on">SK</a></span>
+  <span class="mh-lang langbar"><a class="on">EN</a><i>·</i><a href="./" title="slovenská verzia" onclick="try{localStorage.setItem('cvlang','sk')}catch(e){}">SK</a></span>
 </header>
 
 <!-- HUD -->
@@ -731,7 +721,7 @@
   <div><span class="label">1UP</span><br><span class="val" id="score">000000</span></div>
   <div><span class="label blink">HIGH&nbsp;SCORE</span><br><span class="val">999999</span></div>
   <div><span class="label">WORLD</span><br><span class="val">2026</span></div>
-  <div><span class="label">LANGUAGE</span><br><span class="val langbar"><a href="en.html" title="english version" onclick="try{localStorage.setItem('cvlang','en')}catch(e){}">EN</a><i>·</i><a class="on">SK</a></span></div>
+  <div><span class="label">LANGUAGE</span><br><span class="val langbar"><a class="on">EN</a><i>·</i><a href="./" title="slovenská verzia" onclick="try{localStorage.setItem('cvlang','sk')}catch(e){}">SK</a></span></div>
 </div>
 
 <nav class="menu">
@@ -750,46 +740,46 @@
     <div class="screen">
 
       <div class="stage on">
-      <div class="ready">· VÝBER POSTAVY · FULL-STACK DEVELOPER ·</div>
+      <div class="ready">· CHARACTER SELECT · FULL-STACK DEVELOPER ·</div>
       <div class="intro">
-        <p><span class="cap">S</span>om full-stack developer so zablatenými topánkami: polovica mojej
-        práce sa deje na PC v editore, druhá polovica na stavbe za totálnou stanicou alebo za ovládačom
-        drona. Nikdy sa mi nepodarilo vybrať si jednu hru — tak hrám obe.</p>
-        <p>Väčšina toho, čo púšťam do sveta, začína ako skutočný problém s deadlinom. Kožiarska
-        manufaktúra, ktorá potrebovala online katalóg s objednávkovým systémom. Doručovacia platforma,
-        ktorá z landing page vyrástla na kuriérov, dispečing a dashboardy. Súkromná mapa, ktorá odmieta
-        strkať server medzi kamarátov — takže používateľské dáta sa neukladajú nikde inde, iba
-        v zariadeniach kamarátov. Chatboty s transakciami. A oveľa viac...</p>
-        <p>A keď obrazovka zhasne, meriam terén a lietam s dronmi — staviam ich, lietam s nimi,
-        programujem ich. Tá istá hra, len iná výška.</p>
+        <p><span class="cap">I</span>'m a full-stack developer with mud on my boots: half of my work happens
+        on a PC in an editor, the other half on a construction site behind a total station or a drone
+        controller. I never managed to pick a game — so I keep playing both my games.</p>
+        <p>Most of what I ship starts as a real problem with a deadline. A leather manufactory that
+        needed an online catalogue with an ordering system. A delivery platform that grew from a landing
+        page into couriers, dispatch and dashboards. A private map that refuses to put a server between
+        friends — so the data lives nowhere but on the friends' own devices. Chatbots that handle
+        transactions. And a lot more...</p>
+        <p>And when the screen turns off, I measure land and fly drones — building them, flying them,
+        programming them. Same game, just a different altitude.</p>
       </div>
       </div>
 
       <div class="stage">
-      <div class="ready">· ČO SOM POSTAVIL A KEDY · PREJDI LEVEL, ZOBER LOOT ·</div>
+      <div class="ready">· WHAT I BUILT, AND WHEN · CLEAR THE LEVEL, TAKE THE LOOT ·</div>
 
       <div class="quest">
-        <div class="icon"><span class="when">TERAZ</span><span data-sprite="belt" data-scale="4"></span></div>
+        <div class="icon"><span class="when">NOW</span><span data-sprite="belt" data-scale="4"></span></div>
         <div>
           <h3><a href="https://vkozi.com" target="_blank" rel="noopener">VKOZI.COM</a></h3>
-          <div class="kind">KLIENT · LVL 1</div>
-          <p>Web pre MAXIM 74, slovenskú kožiarsku manufaktúru, ktorá vyrába opasky pre
-          veľkoobchodných partnerov a značky. Ich katalóg, ich príbeh a dopyty, ktoré k nim
-          naozaj dorazia — odovzdané reálnemu klientovi, beží v produkcii.</p>
-          <div class="tags"><span class="tag">web</span><span class="tag">B2B katalóg</span><span class="tag">SEO</span></div>
+          <div class="kind">CLIENT · LVL 1</div>
+          <p>Web for MAXIM 74, a Slovak leather manufactory making belts for wholesale partners
+          and brands. Their catalogue, their story, and enquiries that actually reach them —
+          shipped to a real client, in production.</p>
+          <div class="tags"><span class="tag">web</span><span class="tag">B2B catalogue</span><span class="tag">SEO</span></div>
         </div>
         <div class="score-pop">+100</div>
       </div>
 
       <div class="quest">
-        <div class="icon"><span class="when">TERAZ</span><span data-sprite="package" data-scale="4"></span></div>
+        <div class="icon"><span class="when">NOW</span><span data-sprite="package" data-scale="4"></span></div>
         <div>
           <h3><a href="https://gas.green" target="_blank" rel="noopener">GAS.GREEN</a></h3>
-          <div class="kind">DORUČOVACÍ STARTUP · LVL 2</div>
-          <p>Zákazníci, kuriéri a podniky na jednej doručovacej platforme, z ktorej vyrástol
-          marketplace — objednávky, dispečing, sledovanie, kuriérska appka, biznis dashboard.
-          Projekt, pri ktorom som najdlhšie, od čias, keď bol len landing page.</p>
-          <div class="tags"><span class="tag">TypeScript monorepo</span><span class="tag">Go služby</span><span class="tag">Postgres / Supabase</span><span class="tag">Android buildy</span></div>
+          <div class="kind">DELIVERY STARTUP · LVL 2</div>
+          <p>Customers, couriers and businesses on one delivery platform turned marketplace —
+          ordering, dispatch, tracking, the courier app, the business dashboard.
+          The project I've stayed with longest, since it was a landing page.</p>
+          <div class="tags"><span class="tag">TypeScript monorepo</span><span class="tag">Go services</span><span class="tag">Postgres / Supabase</span><span class="tag">Android builds</span></div>
         </div>
         <div class="score-pop">+300</div>
       </div>
@@ -799,10 +789,10 @@
         <div>
           <h3>DAB</h3>
           <div class="kind">ANDROID · LVL 3</div>
-          <p>Mapa len pre kamarátov, ktorá je na začiatku celá v hmle a odkrýva sa, ako ňou
-          chodíš. Polohy, chat aj hovory idú z telefónu do telefónu cez WebRTC — žiadny
-          centrálny server, žiadny účet a relé vidia vždy len ciphertext.</p>
-          <div class="tags"><span class="tag">WebRTC</span><span class="tag">end-to-end šifrovanie</span><span class="tag">offline mapové dlaždice</span></div>
+          <p>A friends-only map that starts covered in fog and uncovers as you walk it.
+          Positions, chat and calls go phone to phone over WebRTC — no central server,
+          no account, and relays only ever see ciphertext.</p>
+          <div class="tags"><span class="tag">WebRTC</span><span class="tag">end-to-end encryption</span><span class="tag">offline map tiles</span></div>
         </div>
         <div class="score-pop">+500</div>
       </div>
@@ -812,36 +802,35 @@
         <div>
           <h3><a href="https://aktivity.ceaeurope.sk" target="_blank" rel="noopener">AKTIVITY.CEAEUROPE.SK</a></h3>
           <div class="kind">VUE · LVL 4</div>
-          <p>Sprievodca trasami pre DW klub — cyklo, bežecké a turistické trasy zmapované
-          okolo teba, dajú sa vyhľadávať a mapa funguje na telefóne aj v lese.
-          Živé a používané.</p>
-          <div class="tags"><span class="tag">Vue</span><span class="tag">mapové dlaždice</span><span class="tag">Postgres</span></div>
+          <p>Trail guide for the DW klub — bike, run and hiking routes mapped around you,
+          searchable, and usable on a phone in a forest. Live and in use.</p>
+          <div class="tags"><span class="tag">Vue</span><span class="tag">map tiles</span><span class="tag">Postgres</span></div>
         </div>
         <div class="score-pop">+700</div>
       </div>
 
       <div class="quest">
-        <div class="icon"><span class="when">STÁLE</span><span data-sprite="plane" data-scale="4"></span></div>
+        <div class="icon"><span class="when">ALWAYS</span><span data-sprite="plane" data-scale="4"></span></div>
         <div>
-          <h3>TELEGRAM BOTY</h3>
-          <div class="kind">AUTOMATIZÁCIA · LVL 5</div>
-          <p>Boty, ktoré robia skutočnú robotu v okne, ktoré má klient aj tak otvorené:
-          objednávky, notifikácie, admin panely a celé marketplace flow priamo v chate.
-          Ak biznis beží na Telegrame, viem spraviť, aby Telegram bežal ten biznis.</p>
-          <div class="tags"><span class="tag">Telegram Bot API</span><span class="tag">Node.js</span><span class="tag">webhooky</span><span class="tag">platby</span></div>
+          <h3>TELEGRAM BOTS</h3>
+          <div class="kind">AUTOMATION · LVL 5</div>
+          <p>Bots that do actual work in the window the client already has open:
+          orders, notifications, admin panels and whole marketplace flows inside a chat.
+          If a business runs on Telegram, I can make Telegram run the business.</p>
+          <div class="tags"><span class="tag">Telegram Bot API</span><span class="tag">Node.js</span><span class="tag">webhooks</span><span class="tag">payments</span></div>
         </div>
         <div class="score-pop">+1000</div>
       </div>
 
       <div class="quest">
-        <div class="icon"><span class="when">STÁLE</span><span data-sprite="bitcoin" data-scale="4"></span></div>
+        <div class="icon"><span class="when">ALWAYS</span><span data-sprite="bitcoin" data-scale="4"></span></div>
         <div>
-          <h3>KRYPTO PROJEKTY</h3>
+          <h3>CRYPTO PROJECTS</h3>
           <div class="kind">WEB3 · LVL 6</div>
-          <p>Krypto projekty naprieč celým stackom — platobné flow, integrácie peňaženiek
-          a on-chain inštalatérstvo za nimi, plus tie nudné časti
-          (kľúče, zálohy, nestratiť nikomu peniaze) spravené poriadne.</p>
-          <div class="tags"><span class="tag">EVM</span><span class="tag">peňaženky</span><span class="tag">platobné toky</span><span class="tag">boty</span></div>
+          <p>Crypto-based projects across the stack — payment flows, wallet integrations
+          and the on-chain plumbing behind them, plus the boring parts
+          (keys, backups, not losing anyone's money) done properly.</p>
+          <div class="tags"><span class="tag">EVM</span><span class="tag">wallets</span><span class="tag">payment rails</span><span class="tag">bots</span></div>
         </div>
         <div class="score-pop">+2000</div>
       </div>
@@ -849,7 +838,7 @@
       </div>
 
       <div class="stage">
-      <div class="ready">· BONUSOVÝ LEVEL · NIČ Z TOHO NEBOLO POVINNÉ · VŠETKO STÁLO ZA TO ·</div>
+      <div class="ready">· BONUS LEVEL · NONE WERE REQUIRED · ALL WERE WORTH IT ·</div>
 
       <div class="inv-row">
         <span data-sprite="invader" data-scale="3"></span>
@@ -862,29 +851,29 @@
       <div class="sq">
         <div class="icon"><span data-sprite="phone" data-scale="4"></span></div>
         <div>
-          <h3>GESTUROVÝ TOUCHPAD</h3>
+          <h3>GESTURE TOUCHPAD</h3>
           <div class="kind">QUEST 1 · ANDROID</div>
-          <p>Appka, ktorá spraví z telefónu bezdrôtový touchpad s vlastným jazykom gest —
-          dvojité ťuknutie tromi prstami otvorí novú kartu v prehliadači a zvyšok abecedy
-          si vymyslíš sám. Vzniklo, lebo siahať po myši je prehra.</p>
-          <div class="tags"><span class="tag">Android</span><span class="tag">multi-touch gestá</span><span class="tag">nízka latencia</span></div>
+          <p>An app that turns a phone into a wireless touchpad with its own gesture
+          language — double-tap with three fingers opens a new browser tab, and the rest
+          of the alphabet is yours to invent. Made because reaching for a mouse felt like losing.</p>
+          <div class="tags"><span class="tag">Android</span><span class="tag">multi-touch gestures</span><span class="tag">low-latency input</span></div>
         </div>
       </div>
 
       <div class="sq">
         <div class="icon"><span data-sprite="ghost-fright" data-scale="3"></span></div>
         <div>
-          <h3>MENŠIE QUESTY</h3>
-          <div class="kind">QUEST 2 · RÔZNE</div>
-          <p>Skripty, scrapery, malé nástroje a čokoľvek, čo bolo v ten týždeň treba —
-          pozbierané po ceste, dokončené, a niekde si to práve teraz potichu robí svoju robotu.</p>
-          <div class="tags"><span class="tag">skripty</span><span class="tag">nástroje</span><span class="tag">automatizácia</span></div>
+          <h3>SMALLER QUESTS</h3>
+          <div class="kind">QUEST 2 · MISC</div>
+          <p>Scripts, scrapers, small tools and whatever the week needed — picked up along
+          the way, finished, and quietly doing their job somewhere right now.</p>
+          <div class="tags"><span class="tag">scripts</span><span class="tag">tooling</span><span class="tag">automation</span></div>
         </div>
       </div>
       </div>
 
       <div class="stage">
-      <div class="ready">· VZDUŠNÝ &amp; POZEMNÝ PRIESKUM · HIGH SCORE JE V METROCH ·</div>
+      <div class="ready">· AIR &amp; GROUND SURVEY · HIGH SCORE IS IN METERS ·</div>
 
       <div class="battle">
         <div class="stars"></div>
@@ -899,39 +888,39 @@
         <span class="dronewrap hover-bob" id="gunner" data-sprite="drone" data-scale="4"></span>
         <span class="tripodwrap" data-sprite="tripod" data-scale="3"></span>
         <div class="ground"></div>
-        <div class="youwin" id="youwin" title="reštartuj vlnu">
+        <div class="youwin" id="youwin" title="restart the wave">
           <div class="yw-big">YOU WIN!</div>
-          <div class="yw-sub blink">▶ KLIKNI PRE REŠTART ◀</div>
+          <div class="yw-sub blink">▶ CLICK TO RESTART ◀</div>
         </div>
       </div>
 
       <div class="fieldgrid">
         <div class="fieldcard">
-          <h3>GEODÉZIA</h3>
-          <div class="kind">POZEMNÁ ÚROVEŇ</div>
-          <p>Geodetické činnosti v teréne: polohopisné a podrobné merania, vytyčovanie
-          stavieb, dokumentácia skutočného vyhotovenia. GNSS v jednej ruke, totálna
-          stanica v druhej — datasety, na ktorých stojí všetko ostatné.</p>
-          <div class="tags"><span class="tag">GNSS</span><span class="tag">totálna stanica</span><span class="tag">vytyčovanie</span><span class="tag">CAD</span></div>
+          <h3>GEODESY</h3>
+          <div class="kind">GROUND LEVEL</div>
+          <p>Geodetic services in the field: boundary and detail surveys, setting out
+          constructions, as-built documentation. GNSS in one hand, total station in the
+          other — producing the datasets everything else stands on.</p>
+          <div class="tags"><span class="tag">GNSS</span><span class="tag">total station</span><span class="tag">setting out</span><span class="tag">CAD</span></div>
         </div>
         <div class="fieldcard">
-          <h3>DRONY</h3>
-          <div class="kind">VZDUŠNÁ PODPORA</div>
-          <p>Staviam ich, lietam s nimi a programujem ich — od spájkovania a ladenia cez
-          autonómne misie po letecké mapovanie a fotogrametriu, ktorá sa vracia rovno
-          späť do geodetickej roboty.</p>
-          <div class="tags"><span class="tag">vlastné stavby</span><span class="tag">lietanie</span><span class="tag">kód autonómie</span><span class="tag">fotogrametria</span></div>
+          <h3>DRONES</h3>
+          <div class="kind">AIR SUPPORT</div>
+          <p>I build them, fly them and program them — from soldering and tuning through
+          autonomous missions to aerial mapping and photogrammetry that plugs straight
+          back into the survey work.</p>
+          <div class="tags"><span class="tag">custom builds</span><span class="tag">flight</span><span class="tag">autonomy code</span><span class="tag">photogrammetry</span></div>
         </div>
       </div>
       </div>
 
       <div class="stage">
-      <div class="ready">· VZDELANIE ·</div>
+      <div class="ready">· EDU ·</div>
       <div class="edu-line">
         <div class="icon"><span data-sprite="coin" data-scale="4"></span></div>
         <div>
-          <h3>Geodézia a kartografia · STU Bratislava</h3>
-          <p>Slovenská technická univerzita v Bratislave</p>
+          <h3>Geodesy &amp; Cartography · STU Bratislava</h3>
+          <p>Slovak University of Technology in Bratislava</p>
         </div>
       </div>
       </div>
@@ -943,29 +932,29 @@
           <div class="foot-contacts">
             <div class="chip"><b>EMAIL</b> <a href="mailto:adam.molnar6353@gmail.com">adam.molnar6353@gmail.com</a></div>
             <div class="chip"><b>GITHUB</b> <a href="https://github.com/DMNRDR" target="_blank" rel="noopener">DMNRDR</a></div>
-            <div class="chip"><b>BASE</b> Slovensko / remote</div>
+            <div class="chip"><b>BASE</b> Slovakia / remote</div>
           </div>
-          <div class="insert blink">▶ VHOĎ MINCU — ZAMESTNAJ ADAMA ◀</div>
-          <button id="respawn" title="začni odznova od úvodnej obrazovky">↻ RESPAWN</button>
-          <div class="credits">© 2026 ADAM MOLNAR · VYROBENÉ Z PIXELOV A POĽNÝCH ZÁPISKOV<br>PRI VÝROBE TOHTO CV NEPRIŠIEL K ÚJME ŽIADEN DUCH</div>
+          <div class="insert blink">▶ INSERT COIN — HIRE ADAM ◀</div>
+          <button id="respawn" title="start over from the title screen">↻ RESPAWN</button>
+          <div class="credits">© 2026 ADAM MOLNAR · MADE OF PIXELS AND FIELD NOTES<br>NO GHOSTS WERE HARMED IN THE MAKING OF THIS CV</div>
         </div>
       </div>
 
     </div>
     <div class="panel">
-      <div class="joybase" title="potiahni: lietaj s dronom"><div class="joystick"></div></div>
+      <div class="joybase" title="drag: fly the drone"><div class="joystick"></div></div>
       <span class="ptxt">STAGE <span id="stagenum">01</span> · CREDIT <span class="cnum">1</span></span>
       <div class="btnrow">
-        <button class="abtn back" title="predchádzajúca hra">◀</button>
-        <button class="abtn next" title="ďalšia hra">▶</button>
-        <div class="btnhint blink">STLAČ ▶<br>ĎALŠIA HRA</div>
+        <button class="abtn back" title="previous game">◀</button>
+        <button class="abtn next" title="next game">▶</button>
+        <div class="btnhint blink">PRESS ▶<br>NEXT GAME</div>
       </div>
     </div>
     <div class="deck-ledge"></div>
     <div class="front-dots"><i></i><i></i><i></i></div>
     <div class="ledstrip"></div>
     <div class="base">
-      <div class="coindoor" title="VHOĎ MINCU">
+      <div class="coindoor" title="INSERT COIN">
         <div class="slots"><i></i><i></i></div>
         <div class="vent"></div>
       </div>
