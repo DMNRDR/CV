@@ -331,6 +331,14 @@
   .abtn:hover{filter:brightness(1.15)}
   /* instruction card in the middle of the deck — tells the player the arrows flip the game */
   .btnhint{font-size:11px;line-height:1.9;letter-spacing:1px;color:#5a3405;text-shadow:0 1px 0 rgba(255,255,255,.35);white-space:nowrap;text-align:center;pointer-events:none;flex:0 1 auto}
+  /* inline mini replica of the real .abtn.next button */
+  .btnhint .mini{
+    display:inline-block;width:26px;height:26px;border-radius:50%;
+    background:radial-gradient(circle at 35% 30%,#ff9be9,#b02090);
+    box-shadow:0 3px 0 #7a3d00, inset 0 -3px 4px rgba(0,0,0,.45);
+    color:#fff;font-size:9px;line-height:26px;text-align:center;
+    text-shadow:0 1px 2px #000;vertical-align:middle;margin:0 3px 3px;
+  }
 
   /* flared ledge under the deck */
   .deck-ledge{
@@ -650,6 +658,7 @@
     .joystick{width:28px;height:28px;margin:-14px 0 0 -14px}
     .abtn{width:36px;height:36px;font-size:12px}
     .btnhint{font-size:8px;letter-spacing:0;line-height:1.8}
+    .btnhint .mini{width:20px;height:20px;line-height:20px;font-size:7px}
     .floorshadow{margin:0 34px}
     /* single column: icon row on top, text gets the full screen width */
     .quest,.sq{padding:14px 12px 12px;margin:0 0 16px}
@@ -942,7 +951,7 @@
     </div>
     <div class="panel">
       <div class="joybase" title="drag: fly the drone"><div class="joystick"></div></div>
-      <div class="btnhint blink">PRESS ▶<br>NEXT GAME</div>
+      <div class="btnhint blink">PRESS <span class="mini">▶</span> TO CONTINUE</div>
       <div class="btnrow">
         <button class="abtn back" title="previous game">◀</button>
         <button class="abtn next" title="next game">▶</button>
