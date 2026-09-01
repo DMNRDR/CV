@@ -408,6 +408,13 @@
   }
   .coindoor:hover .slots i::after{background:var(--acc);animation:blink .5s steps(2) infinite}
   .coindoor:active{transform:translateY(2px)}
+  /* the coin door doubles as the printable-CV download button */
+  a.coindoor{display:block;text-decoration:none;cursor:pointer}
+  .cdlabel{
+    margin-top:10px;text-align:center;font-size:7px;line-height:1.9;
+    color:#cfcfda;letter-spacing:1px;text-shadow:0 0 6px rgba(255,79,216,.5);
+  }
+  .coindoor:hover .cdlabel{color:#fff}
 
   /* shadow pooling on the floor */
   .floorshadow{
@@ -977,10 +984,11 @@
     <div class="front-dots"><i></i><i></i><i></i></div>
     <div class="ledstrip"></div>
     <div class="base">
-      <div class="coindoor" title="VHOĎ MINCU">
+      <a class="coindoor" href="Adam-Molnar-Zivotopis.pdf" download="Adam-Molnar-Zivotopis.pdf" title="stiahni životopis (PDF, A4)">
         <div class="slots"><i></i><i></i></div>
+        <div class="cdlabel">ŽIVOTOPIS<br>A4</div>
         <div class="vent"></div>
-      </div>
+      </a>
     </div>
   </div>
   <div class="floorshadow"></div>
@@ -1336,15 +1344,7 @@ ts.addEventListener('click',e=>{ if(e.target.closest('a')||e.target.closest('.ch
 /* ================= RESPAWN — back to the title screen ================= */
 document.getElementById('respawn').addEventListener('click',()=>location.reload());
 
-/* ================= COIN DOORS = CREDITS ================= */
-let credits=1;
-document.querySelectorAll('.coindoor').forEach(cd=>{
-  cd.addEventListener('click',()=>{
-    credits++;
-    document.querySelectorAll('.cnum').forEach(el=>el.textContent=credits);
-    addPoints(500);
-  });
-});
+/* (coin door is now the CV-A4 download link — no credit counter anymore) */
 
 /* ================= ONE MACHINE, FIVE GAMES =================
    the arrows swap the game inside the cabinet: marquee title,
